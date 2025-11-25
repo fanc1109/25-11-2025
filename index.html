@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+
+<body>
+    <h1>Lista de Tarefas</h1>
+    <div id="novatarefa">
+        <input id="adicinartarefa" placeholder="Escreva sua nova tarefa" type="text" />
+        <button id="botaotarefa">Adicionar Tarefa</button>
+    </div>
+    <ul id="minhalista"></ul>
+    <script>
+        const adicinartarefa = document.getElementById("adicinartarefa");
+        const minhalista = document.getElementById("minhalista");
+        const botaotarefa = document.getElementById("botaotarefa");
+
+        function adicinartarefa() {
+            const texto = adicinartarefa.value.trim();
+            if (texto === "") {
+                alert("Digite um tarefa");
+                return;
+            }
+        }
+
+        const li = document.createElement('li');
+        li.textContent = texto;
+       const area = document.createElement('area');
+      area.className = area;
+    </script>
+</body>
+
+</html>

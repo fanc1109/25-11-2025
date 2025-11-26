@@ -19,18 +19,45 @@
         const minhalista = document.getElementById("minhalista");
         const botaotarefa = document.getElementById("botaotarefa");
 
-        function adicinartarefa() {
+        function criartarefa() {
             const texto = adicinartarefa.value.trim();
             if (texto === "") {
                 alert("Digite um tarefa");
                 return;
             }
-        }
+        
 
         const li = document.createElement('li');
         li.textContent = texto;
-       const area = document.createElement('area');
-      area.className = area;
+        const area = document.createElement('area');
+        area.className = area;
+
+        const btnconcluir = document.createElement('button');
+        btnconcluir.textContent = 'Concluir';
+        btnconcluir.addEventListener('click', function () {
+            li.classList.toggle('concluida');
+        });
+        const btnexcluir = document.createElement('button');
+        btnexcluir.textContent = 'Excluir';
+        btnexcluir.addEventListener('click', function () {
+            minhalista.appendChild(li);
+        });
+
+        area.appendChild(btnconcluir);
+        area.appendChild(btnexcluir);
+
+        const spantexto = document.createElement('span');
+        spantexto.textContent = texto;
+        li.textContent = "";
+        li.appendChild(spantexto);
+        li.appendChild(area);
+        minhalista.appendChild(li);
+        
+       adicinartarefa.value = "";
+       adicinartarefa.focus();
+    }
+      botaotarefa.addEventListener('click',criartarefa);
+
     </script>
 </body>
 

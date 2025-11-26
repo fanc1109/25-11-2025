@@ -6,10 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
     <style>
+        h1{
+            text-align: center;
+        }
+        div{
+            text-align: center;
+        }
+        ol {
+            margin: 15px;
+            text-align:center;
+            list-style-position:inside;
+        }
         .concluida span {
             text-decoration: line-through;
             opacity: 0.5;
         }
+       input{
+        border-color: rgb(105, 70, 14);
+       }
+       button{
+        background-color: rgb(252, 241, 228)
+       }
+       
     </style>
 </head>
 
@@ -65,9 +83,11 @@
         }
         botaotarefa.addEventListener('click', criartarefa);
 
-adicinartarefa.addEventListener('keydown',function(e){
- 
-});
+        adicinartarefa.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                criartarefa();
+            }
+        });
 
     </script>
 </body>

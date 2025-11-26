@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
+    <style>
+        .concluida span {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,7 +19,7 @@
         <input id="adicinartarefa" placeholder="Escreva sua nova tarefa" type="text" />
         <button id="botaotarefa">Adicionar Tarefa</button>
     </div>
-    <ul id="minhalista"></ul>
+    <ol id="minhalista"></ol>
     <script>
         const adicinartarefa = document.getElementById("adicinartarefa");
         const minhalista = document.getElementById("minhalista");
@@ -25,38 +31,43 @@
                 alert("Digite um tarefa");
                 return;
             }
-        
 
-        const li = document.createElement('li');
-        li.textContent = texto;
-        const area = document.createElement('area');
-        area.className = area;
 
-        const btnconcluir = document.createElement('button');
-        btnconcluir.textContent = 'Concluir';
-        btnconcluir.addEventListener('click', function () {
-            li.classList.toggle('concluida');
-        });
-        const btnexcluir = document.createElement('button');
-        btnexcluir.textContent = 'Excluir';
-        btnexcluir.addEventListener('click', function () {
+            const li = document.createElement('li');
+            li.textContent = texto;
+            const area = document.createElement('area');
+            area.className = area;
+
+
+            const btnconcluir = document.createElement('button');
+            btnconcluir.textContent = 'Concluir';
+            btnconcluir.addEventListener('click', function () {
+                li.classList.toggle('concluida');
+            });
+            const btnexcluir = document.createElement('button');
+            btnexcluir.textContent = 'Excluir';
+            btnexcluir.addEventListener('click', function () {
+                minhalista.removeChild(li);
+            });
+
+            area.appendChild(btnconcluir);
+            area.appendChild(btnexcluir);
+
+            const spantexto = document.createElement('span');
+            spantexto.textContent = texto;
+            li.textContent = "";
+            li.appendChild(spantexto);
+            li.appendChild(area);
             minhalista.appendChild(li);
-        });
 
-        area.appendChild(btnconcluir);
-        area.appendChild(btnexcluir);
+            adicinartarefa.value = "";
+            adicinartarefa.focus();
+        }
+        botaotarefa.addEventListener('click', criartarefa);
 
-        const spantexto = document.createElement('span');
-        spantexto.textContent = texto;
-        li.textContent = "";
-        li.appendChild(spantexto);
-        li.appendChild(area);
-        minhalista.appendChild(li);
-        
-       adicinartarefa.value = "";
-       adicinartarefa.focus();
-    }
-      botaotarefa.addEventListener('click',criartarefa);
+adicinartarefa.addEventListener('keydown',function(e){
+ 
+});
 
     </script>
 </body>
